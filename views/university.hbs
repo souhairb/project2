@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/stylesheets/university_nav.css" />
+  <link rel="stylesheet" href="/stylesheets/add+search.css">
+</head>
+<div class="nav-container">
+  <header class="header">
+    <nav class="nav-wrapper">
+      <a style="text-decoration:none" href="/" class="logo">STUDENTS</a>
+      <div class="authentication">
+        <a href="/adduniversity" style="text-decoration:none" id="nav_login" class="adduniversity">
+          ADDUNIVERSITY</a>
+        <a href="/searchuniversity" style="text-decoration:none" id="nav_login" class="searchuniversity">
+          SEARCHUNIVERSITY</a>
+      </div>
+    </nav>
+  </header>
+</div>
+
+<body>
+  <h1 class="titleUni">Add and look-up universities</h1>
+  <div class="flexbox">
+    <div class="box">
+      <p>You university is not yet in our database ?<br> <br>You want to add it so the other students can look at
+        its
+        different outbound possibilities ! <br> <br> Just click here and fill in the survey </p>
+      <br><br><br><br><br><br>
+      <button onclick="window.location.href='/adduniversity'">Add your uni</button>
+    </div>
+    <div class="box">
+      <p>You're an undergraduate student ? <br> <br>Looking for a university with a nice exchange programm ?
+        <br>Looking for
+        somewhere hot, near the sea ? or more somewhere cold surrounded by mountains ? <br><br>Just click here
+        to
+        find
+        the best opportunities regarding the schools, you'll find whatever you want !!!</p> <br> <br>
+      <button onclick="window.location.href='/adduniversity'">Erasmus programs</button>
+    </div>
+  </div>
+</body>
+
+</html>

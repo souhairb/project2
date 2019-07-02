@@ -1,0 +1,23 @@
+.titleUni {
+  text-align: center;
+  margin-top: 50px;
+ }
+ .box {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid lightblue;
+  margin: 0;
+  height: 300px;
+  border-radius: 15%;
+  text-align: center;
+  margin-left: 200px;
+ }
+ .flexbox {
+  display: flex;
+  padding: 100px;
+ }
+ .button {
+  color: darkblue;
+ }
+ 
+ 

@@ -1,0 +1,41 @@
+<div class="">
+  <div class="titleSU">
+    <h1 class="form-title">Sign up to discover the world</h1>
+    <p class="form-subtitle">Where are you going ?</p>
+  </div>
+  <form method="POST" action="/signup" id="form">
+    <div class="f">
+      <label for="name" class="l">Name</label>
+      <input name="name" type="text" placeholder="name" required>
+    </div>
+    <div class="f">
+      <label for="last-name" class="label-ref label">Last Name</label>
+      <input type="text" name="lastname" placeholder="lastname" required>
+    </div>
+    <div class="f">
+      <label for="email" class="l">Email</label>
+      <input type="email" name="email" placeholder="yourEmail@gmail.com" required>
+    </div>
+    <div class="f">
+      <label for="sneacker-main-cat" class="label-main-cat label">Current University</label>
+      <select name="category" id="category" class="select" required>
+        <option value="">Find your Uni !</option>
+        <option value="HEC">HEC</option>
+        <option value="Polytechnique">Polytechnique</option>
+        <option value="LSE">Harvard</option>
+        <option value="Princeton">Princeton</option>
+        <option value="Cambridge">Cambridge</option>
+        <option value="Exeter">Exeter</option>
+        <option value="Standford">Standford</option>
+        <option value="MIT">MIT</option>
+        <option value="Columbia">Columbia</option>
+      </select>
+    </div>
+    <div class="f">
+      <label for="password" class="label-ref label">Password</label>
+      <input type="password" name="password" placeholder="••••••" required>
+    </div>
+    <button class="button-primary white">Create Account</button>
+  </form>
+  <p class="textlogin">Already have an account ? <a href="/login" class="b">Sign In</a></p>
+</div>

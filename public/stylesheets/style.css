@@ -1,0 +1,13 @@
+@import "./header_nav.css";
+@import "./signinlogin.css";
+@import "./homepage.css";
+@import "./adduniversity.css";
+@import "./searchuniversity.css";
+@import "./profile.css";
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #cfddea;
+}
+
+/*# sourceMappingURL=style.css.map */

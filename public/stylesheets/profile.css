@@ -1,0 +1,22 @@
+.leftsideprofile {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  align-items: center;
+}
+
+.introprofile {
+  border-style: groove;
+  width: 20%;
+  background-color: white;
+  border-color: blue;
+}
+
+.imgprofile {
+  margin-top: 50%;
+  border-style: groove;
+  border-color: blue;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+}

@@ -1,0 +1,58 @@
+/* Hover items*/
+.nav-item:hover {
+  box-shadow: inset 0 -3px 0 0 #111;
+}
+.nav-item-admin:hover {
+  box-shadow: inset 0 -3px 0 0 rgb(52, 52, 255);
+}
+.shop-cart-icon {
+  font-size: 0.8rem;
+  color: rgb(151, 151, 151);
+}
+.shop-cart-icon:hover {
+  color: black;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+/* nav */
+.header {
+  background-color: #3b5997;
+  height: 4rem;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0%;
+}
+
+.nav-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+/* logo */
+.logo {
+  justify-content: flex-start;
+  margin-left: 2%;
+  font-weight: bold;
+  color: white;
+}
+
+/* Authentication */
+.authentication {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  margin-left: 370%;
+  color: white;
+}
+
+.searchuniversity {
+  color: white;
+}
+
+.adduniversity {
+  margin-right: 10%;
+  color: white;
+}
