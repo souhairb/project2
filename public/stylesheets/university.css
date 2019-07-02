@@ -1,0 +1,29 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  font-size: 14px;
+}
+
+.titleUni {
+  text-align: center;
+  margin-top: 5%;
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+}
+.box {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid #f12424;
+  margin: 0;
+  height: 300px;
+  border-radius: 15%;
+  text-align: center;
+  margin-left: 200px;
+}
+.flexbox {
+  display: flex;
+  padding: 100px;
+}
+.button {
+  color: #f12424;
+}

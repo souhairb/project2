@@ -22,8 +22,8 @@
 }
 
 #form button {
-  background: #3b5997;
-  border: 1px solid #3b5997;
+  background: #f12424;
+  border: 1px solid #f12424;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -38,7 +38,7 @@
 
 #form button:hover {
   background: #fff;
-  color: #3b5997;
+  color: #f12424;
   transition: 0.3s ease background;
 }
 
@@ -48,4 +48,18 @@
 
 .titleSU {
   margin-left: 65px;
+}
+
+.form-title {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  align-items: center;
+  text-align: center;
+}
+
+.form-subtitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.8rem;
+  align-items: center;
+  text-align: center;
 }

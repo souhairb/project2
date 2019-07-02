@@ -1,0 +1,21 @@
+#map {
+  margin-top: 3%;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+}
+
+.h1_searchuniversity {
+  font-family: "Dancing Script", cursive;
+  color: black;
+  align-items: center;
+  text-align: center;
+  margin-top: 2%;
+  font-size: 3rem;
+}
+
+.search_container {
+  margin-top: 2%;
+  align-items: center;
+  text-align: center;
+}

@@ -3,7 +3,7 @@
   box-shadow: inset 0 -3px 0 0 #111;
 }
 .nav-item-admin:hover {
-  box-shadow: inset 0 -3px 0 0 rgb(52, 52, 255);
+  box-shadow: inset 0 -3px 0 0 #f12424;
 }
 .shop-cart-icon {
   font-size: 0.8rem;
@@ -17,7 +17,7 @@
 
 /* nav */
 .header {
-  background-color: #3b5997;
+  background-color: #f12424;
   height: 4rem;
   align-items: center;
   display: flex;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: row;
-  margin-left: 370%;
+  margin-left: 340%;
   color: white;
 }
 
@@ -55,4 +55,55 @@
 .adduniversity {
   margin-right: 10%;
   color: white;
+}
+.fas fa-angle-double-down {
+  color: white;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.menu .title {
+  display: inline-block;
+  position: relative;
+  padding: 23px 10px;
+  transition: 0.5s;
+}
+.menu .title a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.menu .title:hover {
+  background-color: #f12424;
+}
+.menu .sous-menu {
+  display: none;
+  position: absolute;
+  background-color: #f12424;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(2, 23, 90, 0.342);
+  z-index: 1;
+}
+
+.sous-menu .undertitle {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.sous-menu li:hover {
+  background-color: #ddd;
+}
+
+.menu:hover .sous-menu {
+  display: block;
 }
