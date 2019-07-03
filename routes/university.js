@@ -25,4 +25,14 @@ router.post("/", (req, res, next) => {
   });
 });
 
+router.get("/universities/api", (req, res) => {
+  university
+    .find()
+    .then(dbRes => {
+      console.log(dbRes);
+      res.status(200).json(dbRes);
+    })
+    .catch(dbErr => console.log(dbErr));
+});
+
 module.exports = router;
