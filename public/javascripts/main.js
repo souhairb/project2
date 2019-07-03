@@ -24,7 +24,7 @@ function getUniversities() {
 
 function placeUniversities(universities) {
   universities.forEach(function(university) {
-    // console.log(university);
+    console.log(university);
     const center = {
       lat: university.location[0],
       lng: university.location[1]
