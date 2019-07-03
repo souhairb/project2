@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const universityModel = require("./../models/university");
+const guard = require("./../utils/guard-route");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -11,18 +13,20 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  universityModel.find().then(dbRes => {
+    res.render("signup", { universities: dbRes });
+  });
 });
 
-router.get("/logout", (req, res) => {
-  res.render("index");
-});
-
-router.get("/adduniversity", (req, res) => {
+router.get("/adduniversity", guard, (req, res) => {
   res.render("adduniversity");
 });
 
-router.get("/searchuniversity", (req, res) => {
+router.get("/university", guard, (req, res) => {
+  res.render("university", { layout: false });
+});
+
+router.get("/searchuniversity", guard, (eq, res) => {
   res.render("searchuniversity");
 });
 
@@ -30,15 +34,11 @@ router.get("/filterUni", (req, res) => {
   res.render("searchuniversity");
 });
 
-router.get("/university", (req, res) => {
-  res.render("university", { layout: false });
+router.get("/profile", guard, (req, res) => {
+  res.render("profile");
 });
 
-// router.get("/profile", (req, res) => {
-//   res.render("profile");
-// });
-
-router.get("/accountinfo", (req, res) => {
+router.get("/accountinfo", guard, (req, res) => {
   res.render("accountinfo");
 });
 
