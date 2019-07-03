@@ -6,13 +6,15 @@ const bcryptSalt = 10;
 
 /* signup */
 router.post("/signup", (req, res) => {
-  const { name, lastname, email, password } = req.body;
+  // return console.log(req.body);
+  const { name, lastname, email, password, university } = req.body;
   const salt = bcrypt.genSaltSync(bcryptSalt);
   const hashPass = bcrypt.hashSync(password, salt);
   User.create({
     name,
     lastname,
     email,
+    university,
     password: hashPass
   })
     .then(resDB => {
@@ -34,6 +36,7 @@ router.post("/login", (req, res, next) => {
     return;
   }
   User.findOne({ email: theEmail })
+    .populate("university")
     .then(user => {
       if (!user) {
         res.render("login", {
@@ -43,6 +46,7 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         req.session.currentUser = user;
+        console.log("yata !", user);
         console.log(req.session.currentUser);
         res.redirect("/");
       } else {
@@ -55,17 +59,23 @@ router.post("/login", (req, res, next) => {
       next(error);
     });
 });
-
 router.post("/signup", (req, res) => {
   res.render("/signup");
 });
 
-/* logout */
-// router.get("/logout", (req, res, next) => {
-//   req.session.destroy(err => {
-//     console.log("SESSION ClOSED");
-//     res.redirect("/");
-//   });
+router.get("/logout", (req, res, next) => {
+  req.session.destroy(err => {
+    console.log("SESSION TERMIAQTED");
+    res.redirect("/");
+  });
+});
+
+// router.use((req, res, next) => {
+//   if (req.session.currentUser) {
+//     next();
+//   } else {
+//     res.redirect("/login");
+//   }
 // });
 
 module.exports = router;
