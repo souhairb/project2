@@ -8,8 +8,14 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const User = require("./models/User.js");
+const User = require("./models/user");
 const University = require("./models/university");
+const index = require("./routes/index");
+const authentification = require("./routes/authen");
+const universityRoute = require("./routes/university");
+const profileRoute = require("./routes/profile");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 mongoose
   .connect("mongodb://localhost/projet2", { useNewUrlParser: true })
@@ -33,8 +39,18 @@ const app = express();
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 
+app.use(cookieParser());
+app.use(
+  session({
+    secret: "basic-auth-secret",
+    cookie: { maxAge: 60000 },
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+      ttl: 24 * 60 * 60 // 1 day
+    })
+  })
+);
 // Express View engine setup
 
 app.use(
@@ -54,13 +70,10 @@ hbs.registerPartials(__dirname + "/views/partials");
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-const index = require("./routes/index");
-const authentification = require("./routes/authen");
-const universityRoute = require("./routes/university");
-
 app.use(authentification);
 app.use("/", index);
 app.use(universityRoute);
+app.use(profileRoute);
 
 // function userCreate() {
 //   User.create({

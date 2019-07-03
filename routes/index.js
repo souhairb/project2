@@ -30,9 +30,9 @@ router.get("/university", (req, res) => {
   res.render("university", { layout: false });
 });
 
-router.get("/profile", (req, res) => {
-  res.render("profile");
-});
+// router.get("/profile", (req, res) => {
+//   res.render("profile");
+// });
 
 router.get("/accountinfo", (req, res) => {
   res.render("accountinfo");

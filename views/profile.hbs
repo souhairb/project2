@@ -1,14 +1,29 @@
 <div class="leftsideprofile">
-  <div class="imgcontainer">
-    <img class="imgprofile" src="./images/defaultimage.png">
-  </div>
-  <h2 class="introh2"> Intro </h2>
-  <div class="introprofile">
-    <pre>Name:</pre>
-    <p>{{User.name}}</p>
-    <pre>Lastname: </pre>
-    <p>{{User.lastname}}</p>
-    <pre>University: </pre>
-    <p>{{University.lastname}}</p>
-  </div>
+  <form action="/profile/{{profile._id}}/" method="POST" class="profile-form">
+    <div class="imgcontainer">
+      <img class="imgprofile" src="./images/defaultimage.png">
+    </div>
+    <h2 class="introh2"> Intro </h2>
+    <div class="introprofile">
+      <label>Name:</label>
+      <input name="profile-name" class="profile-input" value={{profile.name}}>
+      <label>Lastname: <label>
+          <input name="profile-lastname" class="profile-input" value={{profile.lastname}}>
+          <label>University: </label>
+          <input name="profile-university" class="profile-input" value={{profile.university}}>
+    </div>
+  </form>
 </div>
+
+{{!-- <div class="rightsideprofile">
+  <form action="/profile/{{profile._id}}/" method="POST" class="profile-form">
+    <div class="universityinfo">
+      <label>University name</label>
+      <input name="university-name" class="profile-input" value={{profile.name}}>
+      <label>Lastname: <label>
+          <input name="profile-lastname" class="profile-input" value={{profile.lastname}}>
+          <label>University: </label>
+          <input name="profile-university" class="profile-input" value={{profile.university}}>
+    </div>
+  </form>
+</div> --}}

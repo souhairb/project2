@@ -1,5 +1,5 @@
 const express = require("express");
-const User = require("../models/User.js");
+const User = require("../models/user");
 const router = new express.Router();
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
@@ -43,6 +43,7 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         req.session.currentUser = user;
+        console.log(req.session.currentUser);
         res.redirect("/");
       } else {
         res.render("login", {

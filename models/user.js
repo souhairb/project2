@@ -6,9 +6,9 @@ const userSchema = new Schema({
   lastname: String,
   email: String,
   university: String,
-  password: String
+  password: String,
+  universityRanking: Number
 });
 
 const userModel = mongoose.model("User", userSchema);
 module.exports = userModel;
-console.log("souhair");
