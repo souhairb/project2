@@ -29,6 +29,7 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  width: 90%;
 }
 
 /* logo */
@@ -43,8 +44,7 @@
 .authentication {
   display: flex;
   justify-content: flex-end;
-  flex-direction: row;
-  margin-left: 340%;
+  width: 100%;
   color: white;
 }
 
