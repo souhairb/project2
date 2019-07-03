@@ -22,17 +22,10 @@
     </div>
     <div class="f">
       <label for="sneacker-main-cat" class="label-main-cat label">Current University</label>
-      <select name="category" id="category" class="select" required>
-        <option value="">Find your Uni !</option>
-        <option value="HEC">HEC</option>
-        <option value="Polytechnique">Polytechnique</option>
-        <option value="LSE">Harvard</option>
-        <option value="Princeton">Princeton</option>
-        <option value="Cambridge">Cambridge</option>
-        <option value="Exeter">Exeter</option>
-        <option value="Standford">Standford</option>
-        <option value="MIT">MIT</option>
-        <option value="Columbia">Columbia</option>
+      <select name="university" id="category" class="select" required>
+        {{#each universities}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="f">
