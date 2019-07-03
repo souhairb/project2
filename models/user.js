@@ -5,9 +5,11 @@ const userSchema = new Schema({
   name: String,
   lastname: String,
   email: String,
-  university: String,
+  university: {
+    type: Schema.Types.ObjectId,
+    ref: "University"
+  },
   password: String
-  // universityRanking: Number
 });
 
 const userModel = mongoose.model("User", userSchema);
