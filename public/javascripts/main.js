@@ -5,10 +5,17 @@ const ironhackBCN = {
 
 const markers = [];
 
+<<<<<<< HEAD
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 3,
+    center: ironhackBCN
+  });
+=======
 const map = new google.maps.Map(document.getElementById("map"), {
   zoom: 13,
   center: ironhackBCN
 });
+>>>>>>> 1c34025b066fa83921c2fd6b40f55535d97cd6b4
 
 // let center = {
 //   lat: undefined,

@@ -8,12 +8,6 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
-const User = require("./models/user");
-const University = require("./models/university");
-const index = require("./routes/index");
-const authentification = require("./routes/authen");
-const universityRoute = require("./routes/university");
-const profileRoute = require("./routes/profile");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
@@ -70,40 +64,15 @@ hbs.registerPartials(__dirname + "/views/partials");
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
 
-app.use(authentification);
+const index = require("./routes/index");
+const authentification = require("./routes/authen");
+const universityRoute = require("./routes/university");
+const profileRoute = require("./routes/profile");
+// const filter = require("./routes/filterUni");
+
 app.use("/", index);
-app.use(universityRoute);
+app.use(authentification);
 app.use(profileRoute);
-
-// function userCreate() {
-//   User.create({
-//     name: "Gregoire",
-//     lastname: "Lescuyer",
-//     email: "gregles@g.com",
-//     password: "paul"
-//   })
-//     .then(() => {
-//       console.log("user Created");
-//     })
-//     .catch(err => {
-//       console.error("Error creating user", err);
-//     });
-// }
-// userCreate();
-
-// function universityCreate() {
-//   University.create({
-//     name: "Ironhackbcn",
-//     description: "school",
-//     location: { type: "Point", coordinates: [2.213213, 42.123423] }
-//   })
-//     .then(() => {
-//       console.log("user Created");
-//     })
-//     .catch(err => {
-//       console.error("Error creating user", err);
-//     });
-// }
-// universityCreate();
+app.use(universityRoute);
 
 module.exports = app;

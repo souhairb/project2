@@ -26,6 +26,10 @@ router.get("/searchuniversity", (req, res) => {
   res.render("searchuniversity");
 });
 
+router.get("/filterUni", (req, res) => {
+  res.render("searchuniversity");
+});
+
 router.get("/university", (req, res) => {
   res.render("university", { layout: false });
 });
