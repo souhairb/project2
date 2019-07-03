@@ -1,5 +1,5 @@
 require("dotenv").config();
-// require("./bin/seed");
+//require("./bin/seed");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -31,7 +31,7 @@ const debug = require("debug")(
 const app = express();
 
 // Middleware Setup
-app.use(logger("dev"));
+// app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 

@@ -9,7 +9,8 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "University"
   },
-  password: String
+  password: String,
+  ranking: Number
 });
 
 const userModel = mongoose.model("User", userSchema);

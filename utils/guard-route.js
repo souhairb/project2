@@ -1,5 +1,4 @@
 function guardRoute(req, res, next) {
-  console.log("in guard", req.session);
   if (req.session.currentUser) {
     next();
   } else {

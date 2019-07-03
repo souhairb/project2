@@ -1,18 +1,21 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
 .leftsideprofile {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  align-items: center;
-}
-
-.introprofile {
-  width: 20%;
-  background-color: white;
 }
 
 .imgprofile {
-  margin-top: 50%;
+  margin-top: 10%;
   width: 200px;
   height: 200px;
   justify-content: center;
+}
+
+.rightsideprofile {
+  display: flex;
+  flex-direction: column;
 }
