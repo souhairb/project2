@@ -56,39 +56,10 @@ app.locals.title = "Express - Generated with IronGenerator";
 
 const index = require("./routes/index");
 const authentification = require("./routes/authen");
+// const filter = require("./routes/filterUni");
 
 app.use(authentification);
 app.use("/", index);
-
-// function userCreate() {
-//   User.create({
-//     name: "Gregoire",
-//     lastname: "Lescuyer",
-//     email: "gregles@g.com",
-//     password: "paul"
-//   })
-//     .then(() => {
-//       console.log("user Created");
-//     })
-//     .catch(err => {
-//       console.error("Error creating user", err);
-//     });
-// }
-// userCreate();
-
-// function universityCreate() {
-//   University.create({
-//     name: "Ironhackbcn",
-//     description: "school",
-//     location: { type: "Point", coordinates: [2.213213, 42.123423] }
-//   })
-//     .then(() => {
-//       console.log("user Created");
-//     })
-//     .catch(err => {
-//       console.error("Error creating user", err);
-//     });
-// }
-// universityCreate();
+// app.use(filter);
 
 module.exports = app;

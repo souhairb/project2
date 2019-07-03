@@ -26,20 +26,24 @@ router.get("/searchuniversity", (req, res) => {
   res.render("searchuniversity");
 });
 
+router.get("/filterUni", (req, res) => {
+  res.render("searchuniversity");
+});
+
 router.get("/university", (req, res) => {
   res.render("university", { layout: false });
 });
 
 router.get("/profile", (req, res) => {
   res.render("profile");
- });
- 
- router.get("/accountinfo", (req, res) => {
+});
+
+router.get("/accountinfo", (req, res) => {
   res.render("accountinfo");
- });
- 
- router.get("/actions", (req, res) => {
+});
+
+router.get("/actions", (req, res) => {
   res.render("actions");
- });
+});
 
 module.exports = router;
