@@ -5,22 +5,10 @@ const ironhackBCN = {
 
 const markers = [];
 
-<<<<<<< HEAD
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 3,
-    center: ironhackBCN
-  });
-=======
 const map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 13,
-  center: ironhackBCN
+  center: ironhackBCN,
+  zoom: 3
 });
->>>>>>> 1c34025b066fa83921c2fd6b40f55535d97cd6b4
-
-// let center = {
-//   lat: undefined,
-//   lng: undefined
-// };
 
 function getUniversities() {
   axios
@@ -36,14 +24,13 @@ function getUniversities() {
 
 function placeUniversities(universities) {
   universities.forEach(function(university) {
-    console.log(university);
-
+    // console.log(university);
     const center = {
-      lat: university.location.coordinates[1],
-      lng: university.location.coordinates[0]
+      lat: university.location[0],
+      lng: university.location[1]
     };
 
-    console.log(center);
+    console.log("yolo", center);
 
     const pin = new google.maps.Marker({
       position: center,
@@ -51,8 +38,8 @@ function placeUniversities(universities) {
       title: university.name
     });
     console.log("---->");
-    console.log(pin);
-    markers.push(pin);
+    console.log("pipin", pin);
+    // markers.push(pin);
   });
 }
 getUniversities();
