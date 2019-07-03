@@ -3,18 +3,16 @@ const ironhackBCN = {
   lng: 2.17498
 };
 
-const markers = [];
+let markers = [];
 
 const map = new google.maps.Map(document.getElementById("map"), {
   center: ironhackBCN,
   zoom: 3
 });
-
 function getUniversities() {
   axios
     .get("/universities/api")
     .then(response => {
-      console.log(response);
       placeUniversities(response.data);
     })
     .catch(error => {
@@ -24,22 +22,43 @@ function getUniversities() {
 
 function placeUniversities(universities) {
   universities.forEach(function(university) {
-    console.log(university);
     const center = {
       lat: university.location[0],
       lng: university.location[1]
     };
-
-    console.log("yolo", center);
 
     const pin = new google.maps.Marker({
       position: center,
       map: map,
       title: university.name
     });
-    console.log("---->");
-    console.log("pipin", pin);
-    // markers.push(pin);
+    markers.push(pin);
   });
 }
 getUniversities();
+
+const input = document.getElementById("universityname");
+console.log(input);
+input.oninput = function(evt) {
+  filterUniversities(evt.target.value);
+};
+
+function filterUniversities(needle) {
+  const findInputMatch = university => {
+    return Boolean(university.name.toLowerCase().match(needle.toLowerCase()));
+  };
+  console.log(markers);
+  markers.forEach(m => m.setMap(null));
+
+  axios
+    .get("/universities/api")
+    .then(res => {
+      const universities = res.data;
+      const filteredUnis = universities.filter(findInputMatch);
+      console.log(filteredUnis);
+      placeUniversities(filteredUnis);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
