@@ -10,7 +10,9 @@ const userSchema = new Schema({
     ref: "University"
   },
   password: String,
-  ranking: Number
+  ranking: Number,
+  review: String,
+  averageRanking: Number
 });
 
 const userModel = mongoose.model("User", userSchema);
