@@ -3,6 +3,7 @@ const router = new express.Router();
 const userModel = require("../models/user");
 const universityModel = require("../models/university");
 /* profile */
+
 router.get("/profile", (req, res) => {
   const university = req.session.currentUser.university;
   let avgRate;
