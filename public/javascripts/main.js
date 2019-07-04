@@ -33,6 +33,20 @@ function placeUniversities(universities) {
       title: university.name
     });
     markers.push(pin);
+    pin.addListener("click", function() {
+      map.setZoom(15);
+      map.setCenter(pin.getPosition());
+    });
+    pin.addListener("dblclick", function() {
+      var contentString =
+        `<p>Check my page with all my details !, <a href="http://localhost:2122/partners/${
+          university._id
+        }">` + "http://localhost:2122/partners</a> ";
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      infowindow.open(map, pin);
+    });
   });
 }
 getUniversities();
