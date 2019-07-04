@@ -9,7 +9,8 @@ router.post("/adduniversity", (req, res, next) => {
     .create({
       country,
       name,
-      location
+      location,
+      excahnge
     })
     .then(resDB => {
       res.redirect("/");
@@ -17,24 +18,6 @@ router.post("/adduniversity", (req, res, next) => {
     .catch(err => {
       res.redirect("/");
     });
-
-  // add the location object
-  // let location = {
-  //   type: "Point",
-  //   coordinates: [req.body.longitude, req.body.latitude]
-  // };
-  // const newUniversity = new university({
-  //   name: req.body.name,
-  //   description: req.body.description,
-  //   location: location // <= add the location when creating a new university
-  // });
-  // newUniversity.save(error => {
-  //   if (error) {
-  //     next(error);
-  //   } else {
-  //     res.redirect("/");
-  //   }
-  // });
 });
 
 router.get("/universities/api", (req, res) => {
