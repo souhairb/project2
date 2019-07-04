@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const universityModel = require("./../models/university");
 const guard = require("./../utils/guard-route");
-const seeds = require("../bin/seed");
+require("../bin/seed");
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
