@@ -11,8 +11,7 @@ const userSchema = new Schema({
   },
   password: String,
   ranking: Number,
-  review: String,
-  averageRanking: Number
+  review: String
 });
 
 const userModel = mongoose.model("User", userSchema);

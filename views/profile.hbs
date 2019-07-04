@@ -62,12 +62,27 @@
       </form>
     </div>
   </div>
-
-
   <div class="profileopinion">
+    {{#if hasRanked}}
+    <div action="/profile" method="POST" class="opinion-form">
+      <h2 class="profileh2" class="introh2"> Your opinion matters {{hasRanked}}</h2>
+      <label id="score" data-score={{profile.ranking}}>Your University ranking: </label>
+      <br>
+      {{#stars profile.ranking}}
+      <span id="1one" style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
+      {{/stars}}
+      <br />
+      <label> Your University review:</label>
+      <br>
+      <p style="margin-top:5px;" name="review" class="form-control" rows="3" id="comment"
+        placeholder="Enter your review">
+        {{profile.review}}</p>
+      <input id="rating" type="number" name="ranking" value={{profile.ranking}}>
+    </div>
+    {{else}}
     <form action="/profile" method="POST" class="opinion-form">
-      <h2 class="profileh2" class="introh2"> Your opinion matters</h2>
-      <label>Your University ranking: </label>
+      <h2 class="profileh2" class="introh2"> Your opinion matters {{hasRanked}}</h2>
+      <label id="score" data-score={{profile.ranking}}>Your University ranking: </label>
       <br>
       <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"
         class="fa fa-star checked"></span>
@@ -83,10 +98,12 @@
       <label> Your University review:</label>
       <br>
       <textarea style="margin-top:5px;" name="review" class="form-control" rows="3" id="comment"
-        placeholder="Enter your review"></textarea>
-      <input id="rating" type="number" name="ranking">
+        placeholder="Enter your review">{{profile.review}}</textarea>
+      <input id="rating" type="number" name="ranking" value={{profile.ranking}}>
       <button style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success">Submit</button>
     </form>
+    {{/if}}
+
   </div>
 </div>
 {{#each scripts}}
