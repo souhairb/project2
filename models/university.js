@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const universitySchema = new Schema({
   name: String,
   description: String,
-  location: [Number]
+  location: [Number],
+  exchange: [String],
+  rating: { type: Number, default: 0 },
+  voters: { type: Number, default: 0 }
 });
 
 // universitySchema.index({ location: "2dsphere" });
