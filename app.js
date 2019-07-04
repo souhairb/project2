@@ -58,6 +58,12 @@ app.use(
   })
 );
 
+hbs.registerHelper("stars", function(n, block) {
+  var accum = "";
+  for (var i = 0; i < n; i++) accum += block.fn(i);
+  return accum;
+});
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 app.use(express.static(path.join(__dirname, "public")));
