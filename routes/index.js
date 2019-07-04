@@ -38,9 +38,9 @@ router.get("/filterUni", (req, res) => {
   res.render("searchuniversity");
 });
 
-router.get("/profile", guard, (req, res) => {
-  res.render("profile");
-});
+// router.get("/profile", guard, (req, res) => {
+//   res.render("profile");
+// });
 
 router.get("/accountinfo", guard, (req, res) => {
   res.render("accountinfo");

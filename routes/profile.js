@@ -4,12 +4,20 @@ const userModel = require("../models/user");
 const universityModel = require("../models/university");
 /* profile */
 router.get("/profile", (req, res) => {
-  console.log(req.session);
+  const university = req.session.currentUser.university;
+  let avgRate;
+  if (university.rating) {
+    avgRate = Math.ceil(university.rating / university.voters);
+  } else {
+    avgRate = 0;
+  }
+  console.log(avgRate);
   res.render("profile", {
     hasRanked: Boolean(
       req.session.currentUser.ranking && req.session.currentUser.review
     ),
     profile: req.session.currentUser,
+    avgRate,
     scripts: ["rating.js"]
   });
 });

@@ -29,6 +29,7 @@
         <label>Name:</label>
         <br>
         <input name="profile-name" class="profile-input" value={{profile.name}}>
+        <div>{{profile.name}}</div>
         <br>
         <label>Lastname: <label>
             <br>
@@ -43,9 +44,12 @@
         <div class="universityinfo">
           <label>University: </label>
           <br>
-          <input name="profile-university" class="profile-input" value={{profile.university.name}}>
+          <p>{{profile.university.name}}</p>
           <br>
           <label>Average Ranking: <label>
+              {{#stars avgRate}}
+              <span id="1rate" style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
+              {{/stars}}
               {{!-- <br>
                 <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one"
                   style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>

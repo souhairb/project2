@@ -1,8 +1,7 @@
 var count;
 const input = document.getElementById("rating");
 count = input.value || 0;
-console.log(count);
-console.log("hey");
+
 for (var i = 0; i < 5; i++) {
   if (i < count) {
     document.getElementById(i + 1 + "one").style.color = "#f12424";
