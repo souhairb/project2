@@ -11,7 +11,7 @@
 
   <div class="profile">
     <div class="leftsideprofile">
-      <form action="/editprofile" method=" POST" class="profile-form">
+      <form action="/editprofile" method="POST" class="profile-form">
         <div class="imgcontainer">
           <img class="imgprofile" src="./images/defaultimage1.png">
         </div>
@@ -19,12 +19,13 @@
         <div class="introprofile">
           <label>Name:</label>
           <br>
-          <input name="profile-name" class="profile-input" value={{profile.name}}>
+          <input name="name" class="profile-input" value={{profile.name}}>
           <br>
           <label>Lastname: </label>
           <br>
-          <input name="profile-lastname" class="profile-input" value={{profile.lastname}}>
+          <input name="lastname" class="profile-input" value={{profile.lastname}}>
         </div>
+        <button style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success">Submit</button>
       </form>
       <div class="advertising">
         <img class="advertising" src="./images/advertising.gif">

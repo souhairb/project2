@@ -1,7 +1,12 @@
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Helvetica", sans-serif;
   background-color: white;
   font-size: 14px;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .titleUni {
@@ -14,15 +19,17 @@ body {
   width: 320px;
   padding: 10px;
   border: 5px solid #f12424;
-  margin: 0;
   height: 300px;
   border-radius: 15%;
   text-align: center;
-  margin-left: 200px;
+}
+.box p {
+  font-family: "Montserrat", sans-serif;
 }
 .flexbox {
   display: flex;
   padding: 100px;
+  justify-content: space-around;
 }
 .button {
   color: #f12424;

@@ -18,17 +18,17 @@
 /* nav */
 .header {
   background-color: #f12424;
-  height: 4rem;
-  align-items: center;
   display: flex;
   flex-direction: row;
-  margin-top: 0%;
 }
 
 .nav-wrapper {
   align-items: center;
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding: 8px 20px;
 }
 
 /* logo */
@@ -43,9 +43,8 @@
 .authentication {
   display: flex;
   justify-content: flex-end;
-  flex-direction: row;
-  margin-left: 325%;
   color: white;
+  width: 50%;
 }
 
 .login {
@@ -67,23 +66,25 @@
   color: white;
 }
 
-.menu .title .fas fa-align-justify {
-  align-items: center;
+.menu .title .fas {
+  /* align-items: center;
   display: flex;
-  color: white;
+  color: white; */
+  margin-left: 8px;
 }
 
-.menu {
+/* .menu {
   margin: 0;
   padding: 0;
-  position: relative;
   display: inline-block;
+} */
+ul.menu {
+  margin: 0;
+  padding: 0;
 }
 
 .menu .title {
   display: inline-block;
-  position: relative;
-  padding: 23px 10px;
   transition: 0.5s;
 }
 .menu .title a {
@@ -92,6 +93,8 @@
   text-transform: uppercase;
   font-weight: 700;
   font-size: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .menu .title:hover {

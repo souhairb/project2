@@ -46,9 +46,6 @@ router.post("/login", (req, res, next) => {
       }
       if (bcrypt.compareSync(thePassword, user.password)) {
         req.session.currentUser = user;
-        console.log(req.session.currentUser);
-        // console.log("yata !", user);
-        // console.log(req.session.currentUser);
         res.redirect("/");
       } else {
         res.render("login", {
@@ -66,7 +63,6 @@ router.post("/signup", (req, res) => {
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy(err => {
-    console.log("SESSION TERMIAQTED");
     res.redirect("/");
   });
 });
