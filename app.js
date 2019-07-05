@@ -1,5 +1,6 @@
 require("dotenv").config();
-//require("./bin/seed");
+// require("./bin/seed");
+require("./bin/dataUser");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");

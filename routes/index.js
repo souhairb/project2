@@ -38,10 +38,6 @@ router.get("/filterUni", (req, res) => {
   res.render("searchuniversity");
 });
 
-// router.get("/profile", guard, (req, res) => {
-//   res.render("profile");
-// });
-
 router.get("/accountinfo", guard, (req, res) => {
   res.render("accountinfo");
 });
@@ -54,7 +50,15 @@ router.get("/partners/:id", (req, res) => {
   universityModel
     .findById(req.params.id)
     .then(dbRes => {
-      res.render("partners", { university: dbRes });
+      let avgRate;
+      if (dbRes.rating) {
+        avgRate = Math.ceil(dbRes.rating / dbRes.voters);
+      } else {
+        avgRate = 0;
+      }
+      console.log(dbRes.rating);
+      console.log(dbRes);
+      res.render("partners", { university: dbRes, avgRate });
     })
     .catch(err => {
       console.log(err);

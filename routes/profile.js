@@ -1,26 +1,33 @@
 const express = require("express");
 const router = new express.Router();
 const userModel = require("../models/user");
+const guard = require("./../utils/guard-route");
 const universityModel = require("../models/university");
 /* profile */
 
-router.get("/profile", (req, res) => {
-  const university = req.session.currentUser.university;
-  let avgRate;
-  if (university.rating) {
-    avgRate = Math.ceil(university.rating / university.voters);
-  } else {
-    avgRate = 0;
-  }
-  // console.log(avgRate);
-  res.render("profile", {
-    hasRanked: Boolean(
-      req.session.currentUser.ranking && req.session.currentUser.review
-    ),
-    profile: req.session.currentUser,
-    avgRate,
-    scripts: ["rating.js"]
-  });
+router.get("/profile", guard, (req, res) => {
+  // const university = req.session.currentUser.university;
+  universityModel
+    .findById(req.session.currentUser.university._id)
+    .then(university => {
+      let avgRate;
+      // console.log("revenu par la", req.session.currentUser);
+      if (university.rating) {
+        avgRate = Math.ceil(university.rating / university.voters);
+      } else {
+        avgRate = 0;
+      }
+      // console.log(avgRate);
+      res.render("profile", {
+        hasRanked: Boolean(
+          req.session.currentUser.ranking && req.session.currentUser.review
+        ),
+        profile: req.session.currentUser,
+        avgRate,
+        scripts: ["rating.js"]
+      });
+    })
+    .catch(err => console.log(err));
 });
 
 router.post("/profile", (req, res) => {
@@ -29,13 +36,16 @@ router.post("/profile", (req, res) => {
   userModel
     .findByIdAndUpdate(req.session.currentUser._id, { review, ranking })
     .populate("university")
-    .then(dbRes => {
+    .then(updatedUser => {
       // console.log(dbRes.university._id);
+      req.session.currentUser.review = review;
+      req.session.currentUser.ranking = ranking;
       universityModel
-        .findByIdAndUpdate(dbRes.university._id, {
+        .findByIdAndUpdate(updatedUser.university._id, {
           $inc: { voters: 1, rating: incrementRanking }
         })
         .then(success => {
+          // req.session.currentUser = updatedUser;
           res.redirect("/profile");
         })
         .catch(failure => console.log(failure));
@@ -43,49 +53,31 @@ router.post("/profile", (req, res) => {
     .catch(err => console.log(err));
 });
 
-// router.get("/editprofile", (req, res) => {
-//   userModel
-//   .findById(req.params.id)
-//   .then(dbRes => {
-//     res.render("editprofile", { profile: dbRes });
-//   })
-//   .catch(dbErr => {
-//     res.redirect("/profile");
-//   });
-// });
+router.get("/editprofile", (req, res) => {
+  console.log("user", req.session.currentUser._id);
+  userModel
+    .findById(req.session.currentUser._id)
+    .then(dbRes => {
+      res.render("editprofile", { profile: dbRes });
+    })
+    .catch(dbErr => {
+      res.redirect("/profile");
+    });
+});
 
-
-// //Step pour modifier les éléments
-// app.post("/editprofile", (req, res) => {
-//   const sneakermodelname = req.body.sneakermodelname;
-//   const sneakerref = req.body.sneakerref;
-//   const sneakersize = req.body.sneakersize;
-//   const sneakerdescr = req.body.sneakerdescr;
-//   const sneakerprice = req.body.sneakerprice;
-//   const sneakercategory = req.body.sneakercategory;
-//   const sneakertags = req.body.sneakertags;
-//   productModel
-//     .findByIdAndUpdate(req.params.id, {
-//       modelname: sneakermodelname,
-//       ref: sneakerref,
-//       sizes: sneakersize,
-//       description: sneakerdescr,
-//       price: sneakerprice,
-//       category: sneakercategory,
-//       tags: sneakertags
-//     })
-//     .then(dbRes => {
-//       res.redirect("/prod-manage");
-//     })
-//     .catch(dbErr => {
-//       res.render("product_edit", { errorMsg: "Invalid Value" });
-//     });
-// });
-
-
-
-
-
-
-
+//Step pour modifier les éléments
+router.post("/editprofile", (req, res) => {
+  const name = req.body.name;
+  const lastname = req.body.lastname;
+  userModel
+    .findByIdAndUpdate(req.session.currentUser._id, { name, lastname })
+    .then(dbRes => {
+      console.log("ici edit ok");
+      res.redirect("/profile");
+    })
+    .catch(dbErr => {
+      console.log("err");
+      res.render("editprofile", { errorMsg: "Invalid Value" });
+    });
+});
 module.exports = router;
