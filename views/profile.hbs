@@ -22,18 +22,19 @@
   <div class="leftsideprofile">
     <form action="/profile/{{profile._id}}/" method="POST" class="profile-form">
       <div class="imgcontainer">
-        <img class="imgprofile" src="./images/defaultimage.png">
+        <img class="imgprofile" src="./images/defaultimage1.png">
       </div>
       <h2 class="profileh2" class="introh2"> About you</h2>
       <div class="introprofile">
         <label>Name:</label>
         <br>
-        <input name="profile-name" class="profile-input" value={{profile.name}}>
+        {{!-- <input name="profile-name" class="profile-input" value={{profile.name}}> --}}
         <div>{{profile.name}}</div>
         <br>
-        <label>Lastname: <label>
-            <br>
-            <input name="profile-lastname" class="profile-input" value={{profile.lastname}}>
+        <label>Lastname: </label>
+        <br>
+        {{!-- <input name="profile-lastname" class="profile-input" value={{profile.lastname}}> --}}
+        <div>{{profile.lastname}}</div>
       </div>
     </form>
   </div>
@@ -50,18 +51,6 @@
               {{#stars avgRate}}
               <span id="1rate" style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
               {{/stars}}
-              {{!-- <br>
-                <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one"
-                  style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
-                <span onmouseover="starmark(this)" onclick="starmark(this)" id="2one"
-                  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-                <span onmouseover="starmark(this)" onclick="starmark(this)" id="3one"
-                  style="font-size:40px;cursor:pointer;" class="fa fa-star "></span>
-                <span onmouseover="starmark(this)" onclick="starmark(this)" id="4one"
-                  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-                <span onmouseover="starmark(this)" onclick="starmark(this)" id="5one"
-                  style="font-size:40px;cursor:pointer;" class="fa fa-star"></span>
-                <br /> --}}
         </div>
       </form>
     </div>
@@ -69,40 +58,46 @@
   <div class="profileopinion">
     {{#if hasRanked}}
     <div action="/profile" method="POST" class="opinion-form">
-      <h2 class="profileh2" class="introh2"> Your opinion matters {{hasRanked}}</h2>
+      <h2 class="profileh2" class="introh2"> Your opinion matters</h2>
       <label id="score" data-score={{profile.ranking}}>Your University ranking: </label>
       <br>
-      {{#stars profile.ranking}}
-      <span id="1one" style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
-      {{/stars}}
-      <br />
-      <label> Your University review:</label>
+      <div class="stars">
+        {{#stars profile.ranking}}
+        <span id="1one" style="font-size:40px;cursor:pointer;" class="fa fa-star checked"></span>
+        {{/stars}}
+      </div>
       <br>
+      <label class="reviewtitle"> Your University review:</label>
       <p style="margin-top:5px;" name="review" class="form-control" rows="3" id="comment"
         placeholder="Enter your review">
         {{profile.review}}</p>
-      <input id="rating" type="number" name="ranking" value={{profile.ranking}}>
+      <br>
+      <input id="rating" type="number" class="rankingnumber" name="ranking" value={{profile.ranking}}>
     </div>
     {{else}}
     <form action="/profile" method="POST" class="opinion-form">
-      <h2 class="profileh2" class="introh2"> Your opinion matters {{hasRanked}}</h2>
+      <h2 class="profileh2" class="introh2"> Your opinion matters</h2>
+      <br>
       <label id="score" data-score={{profile.ranking}}>Your University ranking: </label>
       <br>
-      <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"
-        class="fa fa-star checked"></span>
-      <span onmouseover="starmark(this)" onclick="starmark(this)" id="2one" style="font-size:40px;cursor:pointer;"
-        class="fa fa-star "></span>
-      <span onmouseover="starmark(this)" onclick="starmark(this)" id="3one" style="font-size:40px;cursor:pointer;"
-        class="fa fa-star "></span>
-      <span onmouseover="starmark(this)" onclick="starmark(this)" id="4one" style="font-size:40px;cursor:pointer;"
-        class="fa fa-star"></span>
-      <span onmouseover="starmark(this)" onclick="starmark(this)" id="5one" style="font-size:40px;cursor:pointer;"
-        class="fa fa-star"></span>
-      <br />
-      <label> Your University review:</label>
+      <div class="stars">
+        <span onmouseover="starmark(this)" onclick="starmark(this)" id="1one" style="font-size:40px;cursor:pointer;"
+          class="fa fa-star checked"></span>
+        <span onmouseover="starmark(this)" onclick="starmark(this)" id="2one" style="font-size:40px;cursor:pointer;"
+          class="fa fa-star "></span>
+        <span onmouseover="starmark(this)" onclick="starmark(this)" id="3one" style="font-size:40px;cursor:pointer;"
+          class="fa fa-star "></span>
+        <span onmouseover="starmark(this)" onclick="starmark(this)" id="4one" style="font-size:40px;cursor:pointer;"
+          class="fa fa-star"></span>
+        <span onmouseover="starmark(this)" onclick="starmark(this)" id="5one" style="font-size:40px;cursor:pointer;"
+          class="fa fa-star"></span>
+      </div>
+      <br>
+      <label class="reviewtitle"> Your University review:</label>
       <br>
       <textarea style="margin-top:5px;" name="review" class="form-control" rows="3" id="comment"
         placeholder="Enter your review">{{profile.review}}</textarea>
+      <br>
       <input id="rating" type="number" name="ranking" value={{profile.ranking}}>
       <button style="margin-top:10px;margin-left:5px;" class="btn btn-lg btn-success">Submit</button>
     </form>

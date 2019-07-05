@@ -18,14 +18,14 @@
 }
 
 .rightsideprofile {
-  margin-top: 12.5%;
+  margin-top: 12.7%;
   margin-left: 5%;
   flex-direction: column;
   display: flex;
 }
 
 .profileopinion {
-  margin-top: 12.5%;
+  margin-top: 12.7%;
   margin-left: 5%;
   flex-direction: column;
   display: flex;
@@ -46,4 +46,16 @@
   font-size: 3rem;
   align-items: center;
   text-align: center;
+}
+
+.rankingnumber {
+  visibility: hidden;
+}
+
+.reviewtitle {
+  margin-top: 5%;
+}
+
+.stars {
+  margin-top: 3%;
 }

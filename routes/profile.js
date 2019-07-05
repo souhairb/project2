@@ -12,7 +12,7 @@ router.get("/profile", (req, res) => {
   } else {
     avgRate = 0;
   }
-  console.log(avgRate);
+  // console.log(avgRate);
   res.render("profile", {
     hasRanked: Boolean(
       req.session.currentUser.ranking && req.session.currentUser.review
@@ -30,7 +30,7 @@ router.post("/profile", (req, res) => {
     .findByIdAndUpdate(req.session.currentUser._id, { review, ranking })
     .populate("university")
     .then(dbRes => {
-      console.log(dbRes.university._id);
+      // console.log(dbRes.university._id);
       universityModel
         .findByIdAndUpdate(dbRes.university._id, {
           $inc: { voters: 1, rating: incrementRanking }
@@ -42,5 +42,50 @@ router.post("/profile", (req, res) => {
     })
     .catch(err => console.log(err));
 });
+
+// router.get("/editprofile", (req, res) => {
+//   userModel
+//   .findById(req.params.id)
+//   .then(dbRes => {
+//     res.render("editprofile", { profile: dbRes });
+//   })
+//   .catch(dbErr => {
+//     res.redirect("/profile");
+//   });
+// });
+
+
+// //Step pour modifier les éléments
+// app.post("/editprofile", (req, res) => {
+//   const sneakermodelname = req.body.sneakermodelname;
+//   const sneakerref = req.body.sneakerref;
+//   const sneakersize = req.body.sneakersize;
+//   const sneakerdescr = req.body.sneakerdescr;
+//   const sneakerprice = req.body.sneakerprice;
+//   const sneakercategory = req.body.sneakercategory;
+//   const sneakertags = req.body.sneakertags;
+//   productModel
+//     .findByIdAndUpdate(req.params.id, {
+//       modelname: sneakermodelname,
+//       ref: sneakerref,
+//       sizes: sneakersize,
+//       description: sneakerdescr,
+//       price: sneakerprice,
+//       category: sneakercategory,
+//       tags: sneakertags
+//     })
+//     .then(dbRes => {
+//       res.redirect("/prod-manage");
+//     })
+//     .catch(dbErr => {
+//       res.render("product_edit", { errorMsg: "Invalid Value" });
+//     });
+// });
+
+
+
+
+
+
 
 module.exports = router;

@@ -33,9 +33,9 @@
 
 /* logo */
 .logo {
+  display: flex;
   justify-content: flex-start;
   margin-left: 2%;
-  font-weight: bold;
   color: white;
 }
 
@@ -67,7 +67,9 @@
   color: white;
 }
 
-.fas fa-angle-double-down {
+.menu .title .fas fa-align-justify {
+  align-items: center;
+  display: flex;
   color: white;
 }
 

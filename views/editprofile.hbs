@@ -1,0 +1,32 @@
+<head>
+  <!-- Font Awesome Icon Library -->
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <div class="profile">
+    <div class="leftsideprofile">
+      <form action="/editprofile" method=" POST" class="profile-form">
+        <div class="imgcontainer">
+          <img class="imgprofile" src="./images/defaultimage1.png">
+        </div>
+        <h2 class="profileh2" class="introh2"> About you</h2>
+        <div class="introprofile">
+          <label>Name:</label>
+          <br>
+          <input name="profile-name" class="profile-input" value={{profile.name}}>
+          <br>
+          <label>Lastname: </label>
+          <br>
+          <input name="profile-lastname" class="profile-input" value={{profile.lastname}}>
+        </div>
+      </form>
+      <div class="advertising">
+        <img class="advertising" src="./images/advertising.gif">
+      </div>
+    </div>
