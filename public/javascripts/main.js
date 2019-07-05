@@ -3,6 +3,7 @@ const ironhackBCN = {
   lng: 2.17498
 };
 
+const site_url = document.getElementById("url").getAttribute("data-url");
 let markers = [];
 
 const map = new google.maps.Map(document.getElementById("map"), {
@@ -39,9 +40,9 @@ function placeUniversities(universities) {
     });
     pin.addListener("dblclick", function() {
       var contentString =
-        `<p>Check my page with all my details !, <a href="http://localhost:2122/partners/${
+        `<p>Check my page with all my details !, <a href="${site_url}/partners/${
           university._id
-        }">` + "http://localhost:2122/partners</a> ";
+        }">` + `${site_url}/partners</a>`;
       var infowindow = new google.maps.InfoWindow({
         content: contentString
       });
