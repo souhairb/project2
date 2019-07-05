@@ -9,6 +9,14 @@ a {
   color: white;
 }
 
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 2%;
+  color: white;
+  font-family: "Gloria Hallelujah", cursive;
+}
+
 .titleUni {
   text-align: center;
   margin-top: 5%;

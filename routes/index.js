@@ -47,6 +47,7 @@ router.get("/actions", (req, res) => {
 });
 
 router.get("/partners/:id", (req, res) => {
+  console.log("coucou");
   universityModel
     .findById(req.params.id)
     .then(dbRes => {

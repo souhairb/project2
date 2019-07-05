@@ -182,11 +182,11 @@ const data = [
   }
 ];
 
-universityModel
-  .insertMany(data)
-  .then(res => {
-    console.log(res);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+// universityModel
+//   .insertMany(data)
+//   .then(res => {
+//     console.log(res);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
