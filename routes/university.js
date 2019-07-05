@@ -5,6 +5,8 @@ const university = require("../models/university");
 // POST => to create new university and save it to the DB
 router.post("/adduniversity", (req, res, next) => {
   const { country, name, location, exchange } = req.body;
+  console.log(req.body);
+  // console.log(country, name, location, exchange);
   university
     .create({
       country,

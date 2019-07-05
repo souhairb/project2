@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const universitySchema = new Schema({
+  country: String,
   name: String,
-  description: String,
   location: [Number],
   exchange: [String],
   rating: { type: Number, default: 0 },
