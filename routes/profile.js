@@ -12,7 +12,7 @@ router.get("/profile", guard, (req, res) => {
     .then(university => {
       let avgRate;
       // console.log("revenu par la", req.session.currentUser);
-      if (university.rating) {
+      if (university && university.rating) {
         avgRate = Math.ceil(university.rating / university.voters);
       } else {
         avgRate = 0;
@@ -70,9 +70,14 @@ router.post("/editprofile", (req, res) => {
   const name = req.body.name;
   const lastname = req.body.lastname;
   userModel
-    .findByIdAndUpdate(req.session.currentUser._id, { name, lastname })
+    .findByIdAndUpdate(
+      req.session.currentUser._id,
+      { name, lastname },
+      { new: true }
+    )
     .then(dbRes => {
-      console.log("ici edit ok");
+      console.log("ici edit ok", dbRes);
+      req.session.currentUser = dbRes;
       res.redirect("/profile");
     })
     .catch(dbErr => {
