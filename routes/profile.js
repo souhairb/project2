@@ -53,7 +53,7 @@ router.post("/profile", (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.get("/editprofile", (req, res) => {
+router.get("/editprofile", guard, (req, res) => {
   console.log("user", req.session.currentUser._id);
   userModel
     .findById(req.session.currentUser._id)

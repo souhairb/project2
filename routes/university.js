@@ -4,13 +4,13 @@ const university = require("../models/university");
 
 // POST => to create new university and save it to the DB
 router.post("/adduniversity", (req, res, next) => {
-  const { country, name, location } = req.body;
+  const { country, name, location, exchange } = req.body;
   university
     .create({
       country,
       name,
       location,
-      excahnge
+      exchange
     })
     .then(resDB => {
       res.redirect("/");
